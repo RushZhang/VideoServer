@@ -131,8 +131,8 @@ $(document).ready(function() {
             formData.append('file', $('#inputFile')[0].files[0]);
 
             $.ajax({
-                url : 'http://' + window.location.hostname + ':8080/upload/' + obj['id'],
-                //url:'http://127.0.0.1:8080/upload/dbibi',
+                url : 'http://' + window.location.hostname + ':8081/upload/' + obj['id'],
+                //url:'http://127.0.0.1:8081/upload/dbibi',
                 type : 'POST',
                 data : formData,
                 //headers: {'Access-Control-Allow-Origin': 'http://127.0.0.1:9000'},
@@ -230,7 +230,7 @@ function getCookie(cname) {
 
 // DOM operations
 function selectVideo(vid) {
-    var url = 'http://' + window.location.hostname + ':8080/videos/'+ vid
+    var url = 'http://' + window.location.hostname + ':8081/videos/'+ vid
     var video = $("#curr-video");
     $("#curr-video:first-child").attr('src', url);
     $("#curr-video-name").text(currentVideo['name']);
@@ -353,7 +353,7 @@ function htmlVideoListElement(vid, name, ctime) {
 function registerUser(callback) {
     var username = $("#username").val();
     var pwd = $("#pwd").val();
-    var apiUrl = window.location.hostname + ':8080/api';
+    var apiUrl = window.location.hostname + ':8081/api';
 
     if (username == '' || pwd == '') {
         callback(null, err);
@@ -374,7 +374,7 @@ function registerUser(callback) {
 
 
     $.ajax({
-        url  : 'http://' + window.location.hostname + ':8080/api',
+        url  : 'http://' + window.location.hostname + ':8081/api',
         type : 'post',
         data : JSON.stringify(dat),
         statusCode: {
@@ -402,7 +402,7 @@ function registerUser(callback) {
 function signinUser(callback) {
     var username = $("#susername").val();
     var pwd = $("#spwd").val();
-    var apiUrl = window.location.hostname + ':8080/api';
+    var apiUrl = window.location.hostname + ':8081/api';
 
     if (username == '' || pwd == '') {
         callback(null, err);
@@ -420,7 +420,7 @@ function signinUser(callback) {
     };
 
     $.ajax({
-        url  : 'http://' + window.location.hostname + ':8080/api',
+        url  : 'http://' + window.location.hostname + ':8081/api',
         type : 'post',
         data : JSON.stringify(dat),
         statusCode: {
@@ -452,7 +452,7 @@ function getUserId(callback) {
     };
 
     $.ajax({
-        url: 'http://' + window.location.hostname + ':8080/api',
+        url: 'http://' + window.location.hostname + ':8081/api',
         type: 'post',
         data: JSON.stringify(dat),
         headers: {'X-Session-Id': session},
@@ -486,7 +486,7 @@ function createVideo(vname, callback) {
     };
 
     $.ajax({
-        url  : 'http://' + window.location.hostname + ':8080/api',
+        url  : 'http://' + window.location.hostname + ':8081/api',
         type : 'post',
         data : JSON.stringify(dat),
         headers: {'X-Session-Id': session},
@@ -518,7 +518,7 @@ function listAllVideos(callback) {
     };
 
     $.ajax({
-        url  : 'http://' + window.location.hostname + ':8080/api',
+        url  : 'http://' + window.location.hostname + ':8081/api',
         type : 'post',
         data : JSON.stringify(dat),
         headers: {'X-Session-Id': session},
@@ -550,7 +550,7 @@ function deleteVideo(vid, callback) {
     };
 
     $.ajax({
-        url  : 'http://' + window.location.hostname + ':8080/api',
+        url  : 'http://' + window.location.hostname + ':8081/api',
         type : 'post',
         data : JSON.stringify(dat),
         headers: {'X-Session-Id': session},
@@ -589,7 +589,7 @@ function postComment(vid, content, callback) {
     };
 
     $.ajax({
-        url  : 'http://' + window.location.hostname + ':8080/api',
+        url  : 'http://' + window.location.hostname + ':8081/api',
         type : 'post',
         data : JSON.stringify(dat),
         headers: {'X-Session-Id': session},
@@ -621,7 +621,7 @@ function listAllComments(vid, callback) {
     };
 
     $.ajax({
-        url  : 'http://' + window.location.hostname + ':8080/api',
+        url  : 'http://' + window.location.hostname + ':8081/api',
         type : 'post',
         data : JSON.stringify(dat),
         headers: {'X-Session-Id': session},

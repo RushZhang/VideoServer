@@ -22,7 +22,7 @@ func RegisterHandler() *httprouter.Router {
 
 	/*
 		proxy用另一种方法解决了跨域问题，不像api归一化
-		http://127.0.0.1:8080/upload/:vid-id
+		http://127.0.0.1:8081/upload/:vid-id
 		http://127.0.0.1:9000/upload/:vid-id
  	*/
 	router.POST("/upload/:vid-id", proxyUploadHandler)
@@ -34,7 +34,7 @@ func RegisterHandler() *httprouter.Router {
 
 func main() {
 	r := RegisterHandler()
-	http.ListenAndServe(":8080", r)
+	http.ListenAndServe(":8081", r)
 }
 
 

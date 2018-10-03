@@ -107,7 +107,7 @@ func proxyVideoHandler(w http.ResponseWriter, r *http.Request, ps httprouter.Par
 
 func proxyUploadHandler(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	u, _ := url.Parse("http://" + config.GetLbAddr() + ":9000/")
-	//在这里，反向代理只是简单的做了域名转换，把8080换为9090
+	//在这里，反向代理只是简单的做了域名转换，把8081换为9090
 	//一般来说，反向代理还可以重写头部，把header里的东西修改，但这里用不到
 	proxy := httputil.NewSingleHostReverseProxy(u)
 	proxy.ServeHTTP(w, r)
